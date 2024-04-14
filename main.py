@@ -1,60 +1,56 @@
 from tkinter import *
 from tkinter import ttk
 
-"""Cores utilizadas"""
+# Definição das cores utilizadas na interface
+cor1 = "#1e1f1e"  # Cor de fundo preta
+cor2 = "#feffff"  # Cor do texto branca
+cor3 = "#38576b"  # Cor de destaque azul
+cor4 = "#ECEFF1"  # Cor de fundo cinza
+cor5 = "#FFAB40"  # Cor de destaque laranja
 
-cor1 = "#1e1f1e"  # preto
-cor2 = "#feffff"  # branco
-cor3 = "#38576b"  # azul
-cor4 = "#ECEFF1"  # cinza
-cor5 = "#FFAB40"  # laranja
-
-"""configurações de tamanho e cor de Background"""
-
+# Configurações da janela principal
 janela = Tk()
 janela.title("Calculadora")
 janela.geometry("235x318")
 janela.config(bg=cor1)
 
-"""Display da  Calculadora"""
-
+# Frame do display da calculadora
 Frame_tela = Frame(janela, width=235, height=50, bg=cor3)
 Frame_tela.grid(row=0, column=0)
 
+# Frame base contendo os botões da calculadora
 Frame_base = Frame(janela, width=235, height=268)
 Frame_base.grid(row=1, column=0)
 
+# Variáveis para controle do texto exibido no display
 todos_valores = ""
 valor_texto = StringVar()
 
-"""Define valor de resultado no display"""
-
-
+# Função para atualizar o display com os valores digitados pelo usuário
 def display_valor(event):
     global todos_valores
 
     todos_valores = todos_valores + str(event)
     valor_texto.set(todos_valores)
 
-
+# Configuração e posicionamento do display
 app_scream = Label(Frame_tela, textvariable=valor_texto, width=16, height=2, padx=7, relief="flat", anchor="e", bd=0,
                    justify=RIGHT, font=('Ivy 18 '), bg='#37474F', fg=cor2)
 app_scream.place(x=0, y=0)
 
-"""Calcular"""
-
-
+# Função para realizar o cálculo e atualizar o display com o resultado
 def calcular():
     global todos_valores
     resultado = str(eval(todos_valores))
     valor_texto.set(resultado)
     todos_valores = ""
 
-
+# Configuração e posicionamento do label de exibição do resultado
 app_label = Label(Frame_tela, textvariable=valor_texto, width=16, height=2, padx=7, relief=FLAT, anchor="e",
                   justify=RIGHT, font=('Ivy 18'), bg=cor3, fg=cor2)
 app_label.place(x=0, y=0)
 
+# Botões da calculadora com suas respectivas funções
 b_1 = Button(Frame_base, command=lambda: display_valor('%'), text="C", width=11, height=2, bg=cor4,
              font=('Ivy 13 bold'), relief=RAISED, overrelief=RIDGE)
 b_1.place(x=0, y=0)
@@ -118,14 +114,17 @@ b_18 = Button(Frame_base, command=lambda: calcular(), text="=", width=5, height=
               font=('Ivy 13 bold'), relief=RAISED, overrelief=RIDGE)
 b_18.place(x=177, y=208)
 
+
+# Função para limpar o display e reiniciar os valores
 def limpar_tela():
     global todos_valores
     todos_valores = ""
     valor_texto.set("")
 
-
+# Botão para limpar a tela
 b_1 = Button(Frame_base, command=lambda: limpar_tela(), text="C", width=11, height=2, bg=cor4,
              font=('Ivy 13 bold'), relief=RAISED, overrelief=RIDGE)
 b_1.place(x=0, y=0)
 
+# Loop principal da interface gráfica
 janela.mainloop()

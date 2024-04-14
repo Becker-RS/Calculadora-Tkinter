@@ -114,6 +114,18 @@ b_18 = Button(Frame_base, command=lambda: display_valor('='), text="=", width=5,
               font=('Ivy 13 bold'), relief=RAISED, overrelief=RIDGE)
 b_18.place(x=177, y=208)
 
+b_18 = Button(Frame_base, command=lambda: calcular(), text="=", width=5, height=2, bg=cor5, fg=cor2,
+              font=('Ivy 13 bold'), relief=RAISED, overrelief=RIDGE)
+b_18.place(x=177, y=208)
 
+def limpar_tela():
+    global todos_valores
+    todos_valores = ""
+    valor_texto.set("")
+
+
+b_1 = Button(Frame_base, command=lambda: limpar_tela(), text="C", width=11, height=2, bg=cor4,
+             font=('Ivy 13 bold'), relief=RAISED, overrelief=RIDGE)
+b_1.place(x=0, y=0)
 
 janela.mainloop()

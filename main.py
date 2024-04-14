@@ -20,13 +20,13 @@ Frame_tela.grid(row=0, column=0)
 Frame_base = Frame(janela, width=235, height=268,)
 Frame_base.grid(row=1, column=0)
 
-b_1 = Button(Frame_base, text="C", width=11,height=2)
+b_1 = Button(Frame_base, text="C", width=11,height=2, bg=cor4, font=('Ivy 13 bold'), relief=RAISED, overrelief=RIDGE)
 b_1.place(x=0, y=0)
 
-b_2 = Button(Frame_base, text="%", width=5,height=2)
-b_2.place(x=90, y=0)
+b_2 = Button(Frame_base, text="%", width=5,height=2, bg=cor4, font=('Ivy 13 bold'), relief=RAISED, overrelief=RIDGE) 
+b_2.place(x=118, y=0)
 
-b_3 = Button(Frame_base, text="/", width=5,height=2)
+b_3 = Button(Frame_base, text="/", width=5,height=2, bg=cor5, fg=cor2, font=('Ivy 13 bold'), relief=RAISED, overrelief=RIDGE)
 b_3.place(x=177, y=0)
 
 janela.mainloop()
